@@ -1,0 +1,74 @@
+<link rel="import" href="bower_components/polymer/polymer-element.html">
+
+<dom-module id="gendalf-button">
+    <template>
+        <style>
+            :host {
+                background-color: #0174DF;
+                border: 1px solid #8258FA;
+                border-radius: 2px;
+                color: #ffffff;
+                padding: 6px;
+                font-size: 15px;
+                margin: 4px;
+                font-family: helvetica;
+                cursor: default;
+                text-align: center;
+            }
+
+            :host([disabled]) {
+                background-color: #58ACFA;
+                border: 1px solid none;
+                color: #0174DF;
+            }
+        </style>
+        <slot></slot>
+    </template>
+
+    <script>
+        class gendalfButton extends Polymer.Element {
+            static get is() { return 'gendalf-button' };
+
+            ready() {
+                super.ready();
+                this.setAttribute('role', 'button');
+                this.addEventListener('keydown', this._keyboardClick);
+            }
+
+            //Aqui defino o comportamento do atributo disabled no elemento.
+            _toogleDisabled(disabled) {
+                if (disabled) {
+                    this.removeAttribute('tabindex');
+                    this.setAttribute('aria-disabled', true);
+                    this.style.pointerEvents = 'none';
+                } else {
+                    this.setAttribute('tabindex', '0');
+                    this.removeAttribute('aria-disabled');
+                    this.style.pointerEvents = 'auto';
+                }
+            }
+
+            //Aqui defino o comportamento do meu button quando for utilizado diretamente pelo teclado.
+            _keyboardClick(pressButton) {
+                const pressEnter =  pressButton.wich == 13 || pressButton.keyCode == 13;
+                const pressEspace = pressButton.wich == 32 || pressButton.keyCode == 32;
+                if ( pressEnter || pressEspace ) {
+                    pressButton.preventDefault();
+                    this.click();
+                }
+            }
+            //Aqui defino quais serão as propriedades do atributo disabled.
+            static get properties() {
+                return {
+                    disabled: {
+                        type: Boolean,
+                        value: false,
+                        observer: '_toogleDisabled',
+                        reflectToAttribute: true
+                    }
+                }
+            }
+        }
+        window.customElements.define(gendalfButton.is, gendalfButton);
+    </script>
+</dom-module>

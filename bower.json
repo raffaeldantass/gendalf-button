@@ -1,0 +1,20 @@
+{
+  "name": "primeiroComponente",
+  "authors": [
+    "Rafael Dantas"
+  ],
+  "description": "",
+  "main": "gendalf-button.html",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "^2.5.0"
+  }
+}

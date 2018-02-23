@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<head>
+    <link rel="import" href="gendalf-button.html">
+    <style>
+        .bloco-titulo h1 {
+            font-size: 40px;
+            font-weight: bold;
+            color: #33000d;
+            text-align: center;
+            font-family: helvetica;
+        }
+
+         .bloco-botoes {
+            display: flex;
+            align-content: center;
+            justify-content: center;
+        }
+
+        .btn {
+            background-color: #0174DF;
+            border: 1px solid #8258FA;
+            border-radius: 2px;
+            color: #ffffff;
+            padding: 6px;
+            font-size: 15px;
+            margin: 4px;
+            font-family: helvetica;
+            cursor: default;
+            text-align: center;
+        }
+
+        button[disabled] {
+            background-color: #58ACFA;
+            border: 1px solid none;
+            color: #0174DF;
+        }
+
+        .bloco-imagens {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items:center;
+        }
+
+        .bloco-imagens img {
+            margin: 10px;
+            border-radius: 20px;
+            box-shadow: 10px 10px 5px #808080;
+        }
+    </style>
+</head>
+<body>
+    <section class="bloco-titulo">
+        <h1> Conheça o menino Gendalf </h1>
+    </section>
+
+    <section class="bloco-botoes">
+        <gendalf-button id="btn-cinza"> Gendalf - The Grey </gendalf-button>
+        <gendalf-button id="btn-branco"> Gendalf - The White </gendalf-button>
+    </section>
+
+    <section class="bloco-imagens">
+        <img id="gendalf-cinza" src="https://pbs.twimg.com/profile_images/3308021824/b584d99cf3eb5f2b87d503551ff7841e_400x400.jpeg" alt="Foto do Gendalf Cinza" role="img" aria-label="Gendalf Cinza" title="Gendalf Cinza">
+
+
+        <img id="gendalf-branco" src="https://pbs.twimg.com/profile_images/457709629506879488/U7QtRIe8_400x400.jpeg" alt="Foto do Gendalf Branco" role="img" aria-label="Gendalf Branco" title="Gendalf Branco">
+
+    </section>
+
+    <script type="text/javascript">
+        let btnCinza  = document.getElementById("btn-cinza");
+        let btnBranco = document.getElementById("btn-branco");
+
+        let gendalfCinza  = document.getElementById('gendalf-cinza');
+        let gendalfBranco = document.getElementById("gendalf-branco");
+
+        //Aqui defino que os elementos img com Id's Gendalf-cinza e Gendalf-Branco tem display = none;
+        gendalfCinza.style.display = 'none';
+        gendalfBranco.style.display = 'none';
+
+
+        /*
+        * Aqui digo que os meus dois botões (btnCinza e btnBranco) vão
+        * começar a definir o comportamento dos meus elementos img, ou seja,
+        * quando o botao for clicado somente uma das imagens vai aparecer ou
+        * desaparecer.
+        */
+        btnCinza.addEventListener("click", () => {
+            if (gendalfCinza.style.display == 'none') {
+                gendalfCinza.style.display = 'block';
+                gendalfBranco.style.display = 'none';
+            } else {
+                gendalfCinza.style.display = 'none';
+            };
+        });
+
+        btnBranco.addEventListener("click", () => {
+            if (gendalfBranco.style.display == 'none') {
+                gendalfBranco.style.display = 'block';
+                gendalfCinza.style.display = 'none';
+            } else {
+                gendalfBranco.style.display = 'none';
+            }
+        });
+    </script>
+</body>
