@@ -3,10 +3,10 @@
   "authors": [
     "Rafael Dantas"
   ],
-  "description": "",
+  "description": "Criação do primeiro webcomponent",
   "main": "gendalf-button.html",
   "license": "MIT",
-  "homepage": "",
+  "homepage": "http://www.github.com/raffaeldantass/gendalf-button",
   "ignore": [
     "**/.*",
     "node_modules",
@@ -15,6 +15,7 @@
     "tests"
   ],
   "dependencies": {
-    "polymer": "^2.5.0"
+    "polymer": "^2.5.0",
+    "primeiroComponente": "gendalf-button#*"
   }
 }
