@@ -11,7 +11,7 @@ $ bower install gendalf-button --save
 ```
 3 - Usage
 ```html
-<gendalf-button></hp-button>
+<gendalf-button></gendalf-button>
 ```
 
 ## 4 - Basic Properties
